@@ -1,0 +1,25 @@
+.dialog{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    padding: 10px;
+}
+
+.dialogs a:not(.active){
+    text-decoration: none;
+    color: darkblue;
+}
+
+.active{
+    color: gold;
+    text-decoration: none;
+}
+
+.textarea{
+    width: 300px;
+    margin-top: 10px;
+}
+
+.button{
+    width: 100px;
+    height: 20px;
+}
