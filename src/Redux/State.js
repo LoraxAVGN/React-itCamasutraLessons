@@ -1,3 +1,8 @@
+const CHANGE_TEXTAREA_PROFILE = 'CHANGE_TEXTAREA_PROFILE';
+const ADD_POST = 'ADD_POST';
+const ADD_MES = 'ADD_MES';
+const CHANGE_TEXTAREA_DIALOG = 'CHANGE_TEXTAREA_DIALOG';
+
 let store = {
     _state:{
         dialogPage: {
@@ -39,15 +44,13 @@ let store = {
         ],
     },
     _renderAllTree(){},
-
     returnRenderAllTree(render){
         this._renderAllTree = render;
     },
     getState(){
         return this._state;
     },
-
-    dispatch(action){   // отправить(действие)
+    dispatch(action){
         if(action.type === 'ADD_POST'){
             let postObj = {
                 message: this._state.profilePage.textareaValue,
@@ -73,5 +76,14 @@ let store = {
         }
     }
 }
+
+export const changeTextareaProfileActionCreator = (text) =>
+    ({type: CHANGE_TEXTAREA_PROFILE, text: text});
+export const addPostActionCreator = () => ({type:ADD_POST});
+export const addMesActionCreator = (text, id) => ({type: ADD_MES, newMes: text, id: id});
+export const changeTextareaDialogActionCreator = (text) => ({type: 'CHANGE_TEXTAREA_DIALOG', text: text});
+
+
+// {type: 'CHANGE_TEXTAREA_DIALOG', text: textareaMes.current.value}
 
 export  default store;
