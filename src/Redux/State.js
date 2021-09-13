@@ -28,13 +28,6 @@ let state = {
                 {mes: "Hello;)", who: false},
                 {mes: "How are you?", who: true}]
         },
-        {
-            id: '3',
-            name: 'Valera',
-            usersMes: [{mes: "Hi, Valera", who: true},
-                {mes: "Hello;)", who: false},
-                {mes: "How are you?", who: true}]
-        }
     ],
 
     addPost: () => {
