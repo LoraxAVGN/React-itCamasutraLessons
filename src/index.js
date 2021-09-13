@@ -8,16 +8,15 @@ import store from './Redux/State';
 export let renderAllTree = () =>{
     ReactDOM.render(
         <React.StrictMode>
-            <App state={store.state}
-                 addPost={store.addPost.bind(store)}
-                 changeTextareaProfile={store.changeTextareaProfile.bind(store)}
-                 changeTextareaDialog={store.changeTextareaDialog.bind(store)}
+            <App state={store.getState()}
+                 dispatch={store.dispatch.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
-
 renderAllTree();
+
+store.returnRenderAllTree(renderAllTree);
 
 reportWebVitals();

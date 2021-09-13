@@ -18,15 +18,15 @@ const App = (props) => {
                 <div className='content'>
                     <Route path='/Dialog'
                            render={() => <Dialog userInfo={props.state.allMessages}
-                                                 changeTextareaDialog={props.changeTextareaDialog}
                                                  dialogTextareaValue={props.state.dialogPage.dialogTextareaValue}
+                                                 dispatch={props.dispatch}
                            />}
                     />
                     <Route path='/Profile' render={() =>
                         <Profile mes={props.state.dialogPage.postMessages}
-                                 addPost={props.addPost}
-                                 changeTextareaProfile={props.changeTextareaProfile}
-                                 textareaValue={props.state.profilePage.textareaValue}/>}
+                                 textareaValue={props.state.profilePage.textareaValue}
+                                 dispatch={props.dispatch}
+                        />}
                     />
                     <Route path='/News' component={News}/>
                     <Route path='/Music' component={Music}/>

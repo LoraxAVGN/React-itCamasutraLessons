@@ -1,7 +1,6 @@
 import React  from 'react';
 import s from './Dialog.module.css';
 import {NavLink, Route} from "react-router-dom";
-import state from "../../Redux/State";
 
 const  DialogLink = (props) =>{  // создание Navlink для имён пользователей
     return(
@@ -20,7 +19,7 @@ const Dialog = (props) =>{
 
         let clickMesButton = () => {                // обработка нажатия
             let text = textareaMes.current.value;
-            state.addMes(text, id);
+            props.dispatch({type: 'ADD_MES', newMes: text, id: id});
         }
 
         return (
@@ -30,7 +29,7 @@ const Dialog = (props) =>{
                 <textarea className={s.textarea}
                           ref={textareaMes}
                           value={props.dialogTextareaValue}
-                          onChange={() => props.changeTextareaDialog(textareaMes.current.value)}
+                          onChange={() => props.dispatch({type: 'CHANGE_TEXTAREA_DIALOG', text: textareaMes.current.value})}
                 />
                 <div/>
                 <button className={s.button} onClick={ clickMesButton }>Отправить</button>

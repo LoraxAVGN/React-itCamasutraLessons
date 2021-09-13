@@ -1,7 +1,5 @@
-import {renderAllTree} from "../index";
-
 let store = {
-    state:{
+    _state:{
         dialogPage: {
             postMessages: [{message: "It's beautiful!", count: '10'},
                 {message: "I love this", count: '15'},
@@ -40,32 +38,39 @@ let store = {
             }
         ],
     },
+    _renderAllTree(){},
 
-    addPost() {
-        let postObj = {
-            message: this.state.profilePage.textareaValue,
-            count: 0
+    returnRenderAllTree(render){
+        this._renderAllTree = render;
+    },
+    getState(){
+        return this._state;
+    },
+
+    dispatch(action){   // отправить(действие)
+        if(action.type === 'ADD_POST'){
+            let postObj = {
+                message: this._state.profilePage.textareaValue,
+                count: 0
+            }
+            this._state.dialogPage.postMessages.push(postObj);
+            this._renderAllTree();
+            this._state.profilePage.textareaValue = '';
         }
-        this.state.dialogPage.postMessages.push(postObj);
-        renderAllTree();
-        this.state.profilePage.textareaValue = '';
-    },
-
-    addMes(newMes, id) {
-        let obj = {mes: newMes, who: true};
-        this.state.allMessages[id - 1].usersMes.push(obj);
-        renderAllTree();
-        this.state.dialogPage.dialogTextareaValue = '';
-    },
-
-    changeTextareaProfile(text) {
-        this.state.profilePage.textareaValue = text;
-        renderAllTree();
-    },
-
-    changeTextareaDialog(text) {
-        this.state.dialogPage.dialogTextareaValue = text;
-        renderAllTree();
+        else if(action.type === 'CHANGE_TEXTAREA_PROFILE'){
+            this._state.profilePage.textareaValue = action.text;
+            this._renderAllTree();
+        }
+        else if(action.type === 'ADD_MES'){
+            let obj = {mes: action.newMes, who: true};
+            this._state.allMessages[action.id - 1].usersMes.push(obj);
+            this._renderAllTree();
+            this._state.dialogPage.dialogTextareaValue = '';
+        }
+        else if(action.type === 'CHANGE_TEXTAREA_DIALOG'){
+            this._state.dialogPage.dialogTextareaValue = action.text;
+            this._renderAllTree();
+        }
     }
 }
 
