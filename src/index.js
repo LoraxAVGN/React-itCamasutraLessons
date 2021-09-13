@@ -3,15 +3,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import state from './Redux/State';
+import store from './Redux/State';
 
 export let renderAllTree = () =>{
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state}
-                 addPost={state.addPost}
-                 changeTextareaProfile={state.changeTextareaProfile}
-                 changeTextareaDialog={state.changeTextareaDialog}
+            <App state={store.state}
+                 addPost={store.addPost.bind(store)}
+                 changeTextareaProfile={store.changeTextareaProfile.bind(store)}
+                 changeTextareaDialog={store.changeTextareaDialog.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')
