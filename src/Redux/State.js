@@ -1,7 +1,5 @@
-const CHANGE_TEXTAREA_PROFILE = 'CHANGE_TEXTAREA_PROFILE';
-const ADD_POST = 'ADD_POST';
-const ADD_MES = 'ADD_MES';
-const CHANGE_TEXTAREA_DIALOG = 'CHANGE_TEXTAREA_DIALOG';
+import profileReduser from "./ProfileReduser";
+import dialogReduser from "./DialogReduser";
 
 let store = {
     _state:{
@@ -43,6 +41,7 @@ let store = {
             }
         ],
     },
+
     _renderAllTree(){},
     returnRenderAllTree(render){
         this._renderAllTree = render;
@@ -50,40 +49,12 @@ let store = {
     getState(){
         return this._state;
     },
+
     dispatch(action){
-        if(action.type === 'ADD_POST'){
-            let postObj = {
-                message: this._state.profilePage.textareaValue,
-                count: 0
-            }
-            this._state.dialogPage.postMessages.push(postObj);
-            this._renderAllTree();
-            this._state.profilePage.textareaValue = '';
-        }
-        else if(action.type === 'CHANGE_TEXTAREA_PROFILE'){
-            this._state.profilePage.textareaValue = action.text;
-            this._renderAllTree();
-        }
-        else if(action.type === 'ADD_MES'){
-            let obj = {mes: action.newMes, who: true};
-            this._state.allMessages[action.id - 1].usersMes.push(obj);
-            this._renderAllTree();
-            this._state.dialogPage.dialogTextareaValue = '';
-        }
-        else if(action.type === 'CHANGE_TEXTAREA_DIALOG'){
-            this._state.dialogPage.dialogTextareaValue = action.text;
-            this._renderAllTree();
-        }
+        this._state = profileReduser(this._state, action)
+        this._state = dialogReduser(this._state, action)
+        this._renderAllTree();
     }
 }
-
-export const changeTextareaProfileActionCreator = (text) =>
-    ({type: CHANGE_TEXTAREA_PROFILE, text: text});
-export const addPostActionCreator = () => ({type:ADD_POST});
-export const addMesActionCreator = (text, id) => ({type: ADD_MES, newMes: text, id: id});
-export const changeTextareaDialogActionCreator = (text) => ({type: 'CHANGE_TEXTAREA_DIALOG', text: text});
-
-
-// {type: 'CHANGE_TEXTAREA_DIALOG', text: textareaMes.current.value}
 
 export  default store;
