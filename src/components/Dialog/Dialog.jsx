@@ -1,7 +1,7 @@
 import React  from 'react';
 import s from './Dialog.module.css';
 import {NavLink, Route} from "react-router-dom";
-import {addMesActionCreator, changeTextareaDialogActionCreator} from "../../Redux/DialogReduser";
+import {addMesActionCreator, changeTextareaDialogActionCreator} from "../../Redux/DialogReducer";
 
 const  DialogLink = (props) =>{  // создание Navlink для имён пользователей
     return(

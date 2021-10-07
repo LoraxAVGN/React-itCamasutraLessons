@@ -1,0 +1,15 @@
+.nav{
+  background-color: lightsalmon;
+  grid-area: n;
+  padding: 20px;
+}
+
+.item a:not(.activeLink){
+  text-decoration:  none;
+  color: black;
+}
+
+.activeLink{
+  color: gold;
+  text-decoration: none;
+}

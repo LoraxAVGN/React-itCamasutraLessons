@@ -1,45 +1,44 @@
-import profileReduser from "./ProfileReduser";
-import dialogReduser from "./DialogReduser";
+import profileReducer from "./ProfileReducer";
+import dialogReducer from "./DialogReducer";
 
 let store = {
     _state:{
-        dialogPage: {
+        profilePage: {
             postMessages: [{message: "It's beautiful!", count: '10'},
                 {message: "I love this", count: '15'},
                 {message: "It's amazing!!!", count: '20'}],
-            dialogTextareaValue: '',
+            profileTextareaValue: '',
         },
 
-        profilePage: {
+        dialogPage: {
             usersInfo: [{name: 'Valera', id: '1'},
                 {name: 'Slava', id: '2'},
                 {name: 'Masha', id: '3'}],
-            textareaValue: '',
+            dialogTextareaValue: '',
+            allMessages: [
+                {
+                    id: '1',
+                    name: 'Masha',
+                    usersMes: [{mes: "Hi, Masha", who: true},
+                        {mes: "Hello;)", who: false},
+                        {mes: "How are you?", who: true}]
+                },
+                {
+                    id: '2',
+                    name: 'Slava',
+                    usersMes: [{mes: "Hi, Slava", who: true},
+                        {mes: "Hello;)", who: false},
+                        {mes: "How are you?", who: true}]
+                },
+                {
+                    id: '3',
+                    name: 'Valera',
+                    usersMes: [{mes: "Hi, Valera", who: true},
+                        {mes: "Hello;)", who: false},
+                        {mes: "How are you?", who: true}]
+                }
+            ],
         },
-
-        allMessages: [
-            {
-                id: '1',
-                name: 'Masha',
-                usersMes: [{mes: "Hi, Masha", who: true},
-                    {mes: "Hello;)", who: false},
-                    {mes: "How are you?", who: true}]
-            },
-            {
-                id: '2',
-                name: 'Slava',
-                usersMes: [{mes: "Hi, Slava", who: true},
-                    {mes: "Hello;)", who: false},
-                    {mes: "How are you?", who: true}]
-            },
-            {
-                id: '3',
-                name: 'Valera',
-                usersMes: [{mes: "Hi, Valera", who: true},
-                    {mes: "Hello;)", who: false},
-                    {mes: "How are you?", who: true}]
-            }
-        ],
     },
 
     _renderAllTree(){},
@@ -51,8 +50,8 @@ let store = {
     },
 
     dispatch(action){
-        this._state = profileReduser(this._state, action)
-        this._state = dialogReduser(this._state, action)
+        this._state = profileReducer(this._state, action)
+        this._state = dialogReducer(this._state, action)
         this._renderAllTree();
     }
 }

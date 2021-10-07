@@ -17,14 +17,14 @@ const App = (props) => {
                 <NavBar/>
                 <div className='content'>
                     <Route path='/Dialog'
-                           render={() => <Dialog userInfo={props.state.allMessages}
+                           render={() => <Dialog userInfo={props.state.dialogPage.allMessages}
                                                  dialogTextareaValue={props.state.dialogPage.dialogTextareaValue}
                                                  dispatch={props.dispatch}
                            />}
                     />
                     <Route path='/Profile' render={() =>
-                        <Profile mes={props.state.dialogPage.postMessages}
-                                 textareaValue={props.state.profilePage.textareaValue}
+                        <Profile mes={props.state.profilePage.postMessages}
+                                 profileTextareaValue={props.state.profilePage.profileTextareaValue}
                                  dispatch={props.dispatch}
                         />}
                     />

@@ -1,0 +1,21 @@
+.item img{
+  width: 40px;
+  border-radius: 50%;
+}
+
+.message{
+  color: blueviolet;
+}
+
+.likes{
+  color: red;
+}
+
+.item{
+  display: flex;
+  align-items: center;
+}
+
+.item>*{
+  margin-right: 5px;
+}

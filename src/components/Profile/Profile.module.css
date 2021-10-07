@@ -1,0 +1,16 @@
+.nature{
+  width: 100%;
+  height: 200px;
+}
+
+.cat{
+  width: 150px;
+}
+
+.contant{
+  margin: 10px;
+}
+
+.contant>*{
+  margin-bottom: 10px;
+}
