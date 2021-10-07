@@ -5,7 +5,7 @@ const dialogReduser = (state, action) =>{
     switch (action.type) {
         case ADD_MES:
             let obj = {mes: action.newMes, who: true};
-            state.allMessages[action.id - 1].usersMes.push(obj);
+            state.dialogPage.allMessages[action.id - 1].usersMes.push(obj);
             state.dialogPage.dialogTextareaValue = '';
             return state;
         case CHANGE_TEXTAREA_DIALOG:

@@ -5,15 +5,15 @@ const profileReduser = (state, action) =>{
     switch (action.type) {
         case ADD_POST:
             let postObj = {
-                message: state.profilePage.textareaValue,
+                message: state.profilePage.profileTextareaValue,
                 count: 0
             }
             debugger;
-            state.dialogPage.postMessages.push(postObj);
-            state.profilePage.textareaValue = '';
+            state.profilePage.postMessages.push(postObj);
+            state.profilePage.profileTextareaValue = '';
             return state;
         case CHANGE_TEXTAREA_PROFILE:
-            state.profilePage.textareaValue = action.text;
+            state.profilePage.profileTextareaValue = action.text;
             return state;
         default: return state;
     }
