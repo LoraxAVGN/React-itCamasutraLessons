@@ -15,6 +15,7 @@ const NavBar = () => {
         <nav className={s.nav}>
             <BarLink name='Profile'/>
             <BarLink name='Dialog'/>
+            <BarLink name='Users'/>
             <BarLink name='News'/>
             <BarLink name='Music'/>
             <BarLink name='Settings'/>

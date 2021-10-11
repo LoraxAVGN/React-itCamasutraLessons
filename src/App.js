@@ -1,13 +1,7 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
-import NavBar from './components/NavBar/NavBar';
-import Profile from './components/Profile/Profile';
 import {BrowserRouter, Route} from "react-router-dom";
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
-import Dialog from "./components/Dialog/Dialog";
+import { Header, NavBar, Profile, News, Music, Settings, Dialog, UsersContainer } from './components';
 
 const App = (props) => {
     return (
@@ -28,6 +22,7 @@ const App = (props) => {
                                  dispatch={props.dispatch}
                         />}
                     />
+                    <Route path='/Users' component={UsersContainer}/>
                     <Route path='/News' component={News}/>
                     <Route path='/Music' component={Music}/>
                     <Route path='/Settings' component={Settings}/>

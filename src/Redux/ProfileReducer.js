@@ -15,7 +15,6 @@ const profileReducer = (state = stateInit, action) =>{
                 message: state.profileTextareaValue,
                 count: 0
             }
-            debugger;
             state.postMessages.push(postObj);
             state.profileTextareaValue = '';
             return state;
