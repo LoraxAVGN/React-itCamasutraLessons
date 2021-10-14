@@ -30,7 +30,7 @@ const UsersReducer = (state=initialState, action) =>{
                 return{
                     ...state,
                     usersCount: action.usersCount,
-                    pagesCount: Math.ceil(action.usersCount/10),
+                    pagesCount: Math.ceil(action.usersCount/21),
                 }
             case SET_ACTIVE_PAGE:
                 return{

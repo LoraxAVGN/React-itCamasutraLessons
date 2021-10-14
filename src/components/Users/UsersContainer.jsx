@@ -1,6 +1,33 @@
 import { connect } from "react-redux";
+import React from 'react';
 import Users from "./Users";
+import axios from 'axios';
 import {followAC, setUsersAC, setUsersCountAC, setActivePageAC} from '../../Redux/UsersReducer';
+
+class usersContainerFunctions extends React.Component{
+
+    axiosFunc = (activePage) =>{
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${activePage}&count=${21}`).then(response => {
+                this.props.setUsers(response.data.items);
+                this.props.setUsersCount(response.data.totalCount);
+            });
+    }
+
+    componentDidMount(){
+        this.axiosFunc(this.props.activePage);
+    }
+
+    render(){
+        return(
+            <Users setActivePage={this.props.setActivePage} 
+                   axiosFunc={this.axiosFunc} 
+                   activePage={this.props.activePage}
+                   users={this.props.users}
+                   follow={this.props.follow}
+            />
+        )
+    }
+}
 
 function mapStateToProps(state){
     return{
@@ -28,4 +55,4 @@ function mapDispatchToProps(dispatch){
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default connect(mapStateToProps, mapDispatchToProps)(usersContainerFunctions);
