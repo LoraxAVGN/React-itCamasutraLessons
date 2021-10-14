@@ -1,30 +1,44 @@
+import React from 'react';
 import axios from 'axios';
 import s from './Users.module.css';
 import itemPhoto from '../../assets/images/avatar.png'
+import classNames from 'classnames';
 
-function Users(props){
+class Users extends React.Component{
 
-    if (props.users.length===0){    // Для того чтобы убрать зацикленность
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            props.setUsers(response.data.items);
-        })
+    axiosFunc = (activePage) =>{
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${activePage}`).then(response => {
+                this.props.setUsers(response.data.items);
+                this.props.setUsersCount(response.data.totalCount);
+            });
     }
 
-    return(
-        <div className={s.users}>
-            {props.users.map(u => 
-                <div key={u.id} className={s.user}>
-                    <img src={u.photos.small===null?itemPhoto:u.photos.small}
-                         alt="photo"
-                         width="100" />
-                    <div>Имя: {u.name}</div>
-                    {/* <div>Страна: {u.country}</div>
-                    <div>Город: {u.city}</div>
-                    <div>Статус: {u.mes}</div> */}
-                    <button onClick={() => props.follow(u.id)}>{u.subscribed?"Отписаться":"Подписаться"}</button>
-                </div>)}
-        </div>
-    )
+    componentDidMount(){
+        this.axiosFunc(this.props.activePage);
+    }
+
+    render(){
+        console.log(this.props.activePage);
+        return(
+            <div className={s.users}>
+                {Array(6).fill(0).map((i,x) => <span key={x} 
+                                                    onClick={() => {this.props.setActivePage(x+1)
+                                                                    this.axiosFunc(x+1)}}
+                                                    className={classNames({
+                                                    [s.numberPage]: true,
+                                                    [s.activePage]: x+1 === this.props.activePage,
+                                                    })}>{x+1} </span>)}
+                {this.props.users.map(u => 
+                    <div key={u.id} className={s.user}>
+                        <img src={u.photos.small===null?itemPhoto:u.photos.small}
+                             alt="photo"
+                             width="100" />
+                        <div>Имя: {u.name}</div>
+                        <button onClick={() => this.props.follow(u.id)}>{u.subscribed?"Отписаться":"Подписаться"}</button>
+                    </div>)}
+            </div>
+        )
+    };
 }
 
 export default Users;
