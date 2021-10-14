@@ -3,8 +3,7 @@ const ADD_POST = 'ADD_POST';
 
 let stateInit = {
     postMessages: [{message: "It's beautiful!", count: '10'},
-        {message: "I love this", count: '15'},
-        {message: "It's amazing!!!", count: '20'}],
+        {message: "I love this", count: '15'}],
     profileTextareaValue: '',
 };
 

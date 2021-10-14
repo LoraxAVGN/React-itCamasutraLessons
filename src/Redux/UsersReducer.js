@@ -2,6 +2,7 @@ const FOLLOW_UNFOLLOW = 'FOLLOW_UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_USERS_COUNT = 'SET_USERS_COUNT';
 const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE';
+const SET_FETCH = 'SET_FETCH';
 
 
 let initialState = {
@@ -9,6 +10,7 @@ let initialState = {
     usersCount: 0,
     pagesCount: 0,
     activePage: 1,
+    isFetch: true,
 }
 
 const UsersReducer = (state=initialState, action) =>{
@@ -37,6 +39,11 @@ const UsersReducer = (state=initialState, action) =>{
                     ...state,
                     activePage: action.activePage,
                 }
+            case SET_FETCH:
+                return{
+                    ...state,
+                    isFetch: action.isFetch
+                }
         default: return state;
     }
 }
@@ -45,5 +52,6 @@ export const followAC = (id) => ({type: FOLLOW_UNFOLLOW, id: id});
 export const setUsersAC = (users) => ({type: SET_USERS, users});
 export const setUsersCountAC = (usersCount) => ({type: SET_USERS_COUNT, usersCount});
 export const setActivePageAC = (activePage) => ({type: SET_ACTIVE_PAGE, activePage});
+export const setFetchAC = (isFetch) => ({type: SET_FETCH, isFetch});
 
 export default UsersReducer;

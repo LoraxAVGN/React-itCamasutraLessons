@@ -2,14 +2,16 @@ import { connect } from "react-redux";
 import React from 'react';
 import Users from "./Users";
 import axios from 'axios';
-import {followAC, setUsersAC, setUsersCountAC, setActivePageAC} from '../../Redux/UsersReducer';
+import {followAC, setUsersAC, setUsersCountAC, setActivePageAC, setFetchAC} from '../../Redux/UsersReducer';
 
 class usersContainerFunctions extends React.Component{
 
     axiosFunc = (activePage) =>{
+        this.props.setFetch(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${activePage}&count=${21}`).then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.setUsersCount(response.data.totalCount);
+                this.props.setFetch(false);
             });
     }
 
@@ -24,6 +26,7 @@ class usersContainerFunctions extends React.Component{
                    activePage={this.props.activePage}
                    users={this.props.users}
                    follow={this.props.follow}
+                   isFetch={this.props.isFetch}
             />
         )
     }
@@ -35,6 +38,7 @@ function mapStateToProps(state){
         usersCount: state.usersPage.usersCount,
         pagesCount: state.usersPage.pagesCount,
         activePage: state.usersPage.activePage,
+        isFetch: state.usersPage.isFetch,
     }
 }
 
@@ -51,6 +55,9 @@ function mapDispatchToProps(dispatch){
         },
         setActivePage: (activePage) => {
             dispatch(setActivePageAC(activePage));
+        },
+        setFetch: (isFetch) => {
+            dispatch(setFetchAC(isFetch));
         }
     }
 }
