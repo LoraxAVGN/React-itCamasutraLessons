@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React from 'react';
 import Users from "./Users";
 import axios from 'axios';
-import {followAC, setUsersAC, setUsersCountAC, setActivePageAC, setFetchAC} from '../../Redux/UsersReducer';
+import {follow, setUsers, setUsersCount, setActivePage, setFetch} from '../../Redux/UsersReducer';
 
 class usersContainerFunctions extends React.Component{
 
@@ -42,24 +42,6 @@ function mapStateToProps(state){
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return{
-        follow: (userId) => {
-            dispatch(followAC(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users));
-        },
-        setUsersCount: (usersCount) => {
-            dispatch(setUsersCountAC(usersCount));
-        },
-        setActivePage: (activePage) => {
-            dispatch(setActivePageAC(activePage));
-        },
-        setFetch: (isFetch) => {
-            dispatch(setFetchAC(isFetch));
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(usersContainerFunctions);
+export default connect(mapStateToProps, 
+    { follow, setUsers, setUsersCount, setActivePage, setFetch } 
+        )(usersContainerFunctions);

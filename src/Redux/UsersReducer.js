@@ -48,10 +48,10 @@ const UsersReducer = (state=initialState, action) =>{
     }
 }
 
-export const followAC = (id) => ({type: FOLLOW_UNFOLLOW, id: id});
-export const setUsersAC = (users) => ({type: SET_USERS, users});
-export const setUsersCountAC = (usersCount) => ({type: SET_USERS_COUNT, usersCount});
-export const setActivePageAC = (activePage) => ({type: SET_ACTIVE_PAGE, activePage});
-export const setFetchAC = (isFetch) => ({type: SET_FETCH, isFetch});
+export const follow = (id) => ({type: FOLLOW_UNFOLLOW, id: id});
+export const setUsers = (users) => ({type: SET_USERS, users});
+export const setUsersCount = (usersCount) => ({type: SET_USERS_COUNT, usersCount});
+export const setActivePage = (activePage) => ({type: SET_ACTIVE_PAGE, activePage});
+export const setFetch = (isFetch) => ({type: SET_FETCH, isFetch});
 
 export default UsersReducer;

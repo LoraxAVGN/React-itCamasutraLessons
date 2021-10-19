@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, Route} from "react-router-dom";
-import { Header, NavBar, Profile, News, Music, Settings, Dialog, UsersContainer } from './components';
+import { Header, NavBar, ProfileContainer, News, Music, Settings, Dialog, UsersContainer } from './components';
 
 const App = (props) => {
     return (
@@ -17,7 +17,7 @@ const App = (props) => {
                            />}
                     />
                     <Route path='/Profile' render={() =>
-                        <Profile mes={props.state.profilePage.postMessages}
+                        <ProfileContainer mes={props.state.profilePage.postMessages}
                                  profileTextareaValue={props.state.profilePage.profileTextareaValue}
                                  dispatch={props.dispatch}
                         />}
