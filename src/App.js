@@ -16,7 +16,7 @@ const App = (props) => {
                                                  dispatch={props.dispatch}
                            />}
                     />
-                    <Route path='/Profile' render={() =>
+                    <Route path='/Profile/:idUser?' render={() =>
                         <ProfileContainer mes={props.state.profilePage.postMessages}
                                  profileTextareaValue={props.state.profilePage.profileTextareaValue}
                                  dispatch={props.dispatch}
