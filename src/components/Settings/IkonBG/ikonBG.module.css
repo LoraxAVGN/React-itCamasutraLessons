@@ -1,0 +1,11 @@
+.imgBG{
+    width: 250px;
+    height: 200px;
+    background: wheat;
+    transition: .4s;
+}
+
+.imgBG:hover{
+    cursor: pointer;
+    opacity: .8;
+}

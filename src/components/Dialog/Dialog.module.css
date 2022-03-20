@@ -1,12 +1,16 @@
 .dialog{
     display: grid;
     grid-template-columns: 2fr 10fr;
-    padding: 10px;
+    padding: 15px;
 }
 
 .dialogs a:not(.active){
     text-decoration: none;
     color: darkblue;
+}
+
+.dialogs{
+    min-width: 160px;
 }
 
 .active{
@@ -15,11 +19,28 @@
 }
 
 .textarea{
-    width: 300px;
+    width: 800px;
+    min-height: 100px;
     margin-top: 10px;
+    font-size: 20px;
 }
 
 .button{
-    width: 100px;
-    height: 20px;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: rgb(211, 211, 211);
+}
+
+.dialogName{
+    font-size: 30px;
+}
+
+.userDialog{
+    font-size: 20px;
 }

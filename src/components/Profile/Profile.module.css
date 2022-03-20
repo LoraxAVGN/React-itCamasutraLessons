@@ -4,7 +4,7 @@
 }
 
 .contant{
-  margin: 10px;
+  margin: 20px;
 }
 
 .contant>*{
@@ -12,6 +12,29 @@
 }
 
 .cat{
-  width: 150px;
+  width: 230px;
   margin-bottom: 0;
+  border-radius: 15px;
+}
+
+.photo_info{
+  display: flex;
+  width: 600px;
+  /* justify-content: space-between; */
+  gap: 50px;
+  align-items: center;
+}
+
+.myInfo{
+  font-size: 20px;
+  background-color: white;
+  border: solid 2px black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.myPosts{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
 }

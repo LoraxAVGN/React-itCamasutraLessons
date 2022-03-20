@@ -3,6 +3,10 @@ import dialogReducer from "./DialogReducer";
 
 let store = {
     _state:{
+        settingsPage:{
+            url: 'https://catherineasquithgallery.com/uploads/posts/2021-02/1612798165_200-p-goluboi-abstraktnii-fon-226.jpg',
+        },
+
         profilePage: {
             postMessages: [{message: "It's beautiful!", count: '10'},
                 {message: "I love this", count: '15'},

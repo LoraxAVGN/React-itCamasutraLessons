@@ -1,5 +1,6 @@
 import React  from 'react';
 import {addPostActionCreator, changeTextareaProfileActionCreator} from "../../../Redux/ProfileReducer";
+import s from './MyProfile.module.css';
 
 let textareaRef = React.createRef();
 
@@ -15,9 +16,10 @@ const MyProfile = (props) =>{
 
     return(
       <div >
-        <textarea ref={textareaRef} onChange={textareaChange} value={props.profileTextareaValue}/>
+        <p className={s.addCom}>Добавить комментарий</p>
+        <textarea maxLength="120" ref={textareaRef} onChange={textareaChange} value={props.profileTextareaValue}/>
           <div/>
-        <button onClick={ addPost }>Отправить</button>
+        <button className={s.addBut} onClick={ addPost }>Отправить</button>
       </div>
       )
 }

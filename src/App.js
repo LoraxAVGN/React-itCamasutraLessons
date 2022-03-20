@@ -1,15 +1,20 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, Route} from "react-router-dom";
-import { Header, NavBar, ProfileContainer, News, Music, Settings, Dialog, UsersContainer } from './components';
+import { Header, NavBar, ProfileContainer, News, Settings, Dialog, UsersContainer } from './components';
 
 const App = (props) => {
+
+    var backImg = {
+        backgroundImage: `url(${props.state.settingsPage.url})`
+    }
+    
     return (
         <BrowserRouter>
             <div className='site'>
                 <Header/>
                 <NavBar/>
-                <div className='content'>
+                <div className='content' style={ backImg }>
                     <Route path='/Dialog'
                            render={() => <Dialog userInfo={props.state.dialogPage.allMessages}
                                                  dialogTextareaValue={props.state.dialogPage.dialogTextareaValue}
@@ -24,8 +29,10 @@ const App = (props) => {
                     />
                     <Route path='/Users' component={UsersContainer}/>
                     <Route path='/News' component={News}/>
-                    <Route path='/Music' component={Music}/>
-                    <Route path='/Settings' component={Settings}/>
+                    <Route path='/Settings' render={() =>
+                        <Settings dispatch={props.dispatch}
+                        />}
+                    />
                 </div>
             </div>
         </BrowserRouter>

@@ -19,3 +19,12 @@
 .item>*{
   margin-right: 5px;
 }
+
+button{
+  transition: .5s;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: rgb(211, 211, 211);
+}

@@ -1,6 +1,7 @@
 .user{
     margin: 0 auto;
     /* max-width: 100px; */
+    padding: 10px;
 }
 
 .activePage{
@@ -18,7 +19,7 @@
 .pageUsers{
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 10px;
 }
 
 .users{
@@ -29,4 +30,5 @@
 
 .pagination{
     margin: 15px;
+    margin-bottom: 5px;
 }

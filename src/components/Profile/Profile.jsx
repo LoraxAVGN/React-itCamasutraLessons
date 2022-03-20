@@ -13,21 +13,25 @@ const Profile = (props) => {
 
     return (
         <div>
-            <img className={s.nature}
-                 src='https://img1.akspic.ru/originals/5/3/6/2/0/102635-pejzazhi_gor-dikaya_mestnost-gora-gornyj_relef-nebo-1920x1080.jpg'/>
-            <div className={s.contant}>
-                <img className={s.cat} 
-                     src={!props.profile.photos.small?itemPhoto:props.profile.photos.small}
-                />
-                <p>Имя: {props.profile.fullName}</p>
-                {props.profile.aboutMe && <p>Обо мне: {props.profile.aboutMe}</p>}
-                {props.profile.lookingForAJob && <p>Работа: {props.profile.lookingForAJob?'Есть':'Нет'}</p>}
-                {props.profile.lookingForAJobDescription && <p>О работе: {props.profile.lookingForAJobDescription}</p>}
+           <div className={s.contant}>
+                <div className={s.photo_info}>
+                    <img className={s.cat} 
+                        src={!props.profile.photos.small?itemPhoto:props.profile.photos.small}
+                    />
+                    <div className={s.myInfo}>
+                        <p>Имя: {props.profile.fullName}</p>
+                        {props.profile.aboutMe && <p>Обо мне: {props.profile.aboutMe}</p>}
+                        {props.profile.lookingForAJob && <p>Работа: {props.profile.lookingForAJob?'Есть':'Нет'}</p>}
+                        {props.profile.lookingForAJobDescription && <p>О работе: {props.profile.lookingForAJobDescription}</p>}
+                    </div>
+                </div>
                      
                 <MyProfile dispatch={props.dispatch}
                            profileTextareaValue={props.profileTextareaValue}
                 />
-                { allPostMessages }
+                <div className={s.myPosts}>
+                    { allPostMessages }
+                </div>
             </div>
         </div>
     )

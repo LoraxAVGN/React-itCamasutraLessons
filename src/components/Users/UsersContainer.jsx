@@ -8,7 +8,7 @@ class usersContainerFunctions extends React.Component{
 
     axiosFunc = (activePage) =>{
         this.props.setFetch(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${activePage}&count=${21}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${activePage}&count=${24}`).then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.setUsersCount(response.data.totalCount);
                 this.props.setFetch(false);

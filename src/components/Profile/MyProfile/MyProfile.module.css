@@ -1,0 +1,15 @@
+.addCom{
+    font-size: 20px;
+}
+
+textarea{
+    min-width: 400px;
+    min-height: 60px;
+    margin-top: -10px;
+}
+
+.addBut{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}

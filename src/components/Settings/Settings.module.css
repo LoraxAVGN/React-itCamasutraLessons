@@ -1,0 +1,15 @@
+.settings{
+    padding: 10px 15px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.blockBG{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: white;
+    padding: 15px;
+    margin-top: 15px;
+}

@@ -1,8 +1,37 @@
 .header{
-    background-color: aqua;
+    background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-03/1615821195_1-p-fon-prostoi-2.jpg);
     grid-area: h;
+    padding: 15px;
 }
 
-.header img{
-    width: 80px;
+.logo{
+    width: 400px;
+    height: 70px;
+}
+
+.headerBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons{
+    width: 230px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons>*{
+    padding: 10px;
+    background-color: white;
+    border: solid 2px black;
+    border-radius: 15px;
+    min-width: 80px;
+    transition: .5s;
+    
+}
+
+.buttons>*:hover{
+    background-color: rgb(231, 231, 231);
+    cursor: pointer;
 }

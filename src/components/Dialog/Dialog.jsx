@@ -5,7 +5,7 @@ import {addMesActionCreator, changeTextareaDialogActionCreator} from "../../Redu
 
 const  DialogLink = (props) =>{  // создание Navlink для имён пользователей
     return(
-        <div className="dialogName">
+        <div className={s.dialogName}>
             <NavLink to={'/Dialog/' + props.id} activeClassName={s.active}>{props.name}</NavLink>
         </div>
     )
@@ -24,10 +24,11 @@ const Dialog = (props) =>{
         }
 
         return (
-            <div>
+            <div className={s.userDialog}>
                 {props.userInfo[id - 1].usersMes.map(i =>
                     <div>{i.mes}</div>)}
                 <textarea className={s.textarea}
+                        //   maxLength="70"
                           ref={textareaMes}
                           value={props.dialogTextareaValue}
                           onChange={() => props.dispatch(changeTextareaDialogActionCreator(textareaMes.current.value))}

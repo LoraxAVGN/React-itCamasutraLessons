@@ -34,7 +34,7 @@ const Users = (props) => {
                                         width="100"
                                         height="100" />
                             </NavLink>
-                            <div>{u.name.length<10?u.name:u.name.slice(0, 7)+"..."}</div>
+                            <div>{u.name.length<10?u.name:u.name.slice(0, 9)+"..."}</div>
                             <button onClick={() => props.follow(u.id)}>{u.subscribed?"Отписаться":"Подписаться"}</button>
                         </div>)}
                 </div>
