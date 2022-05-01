@@ -24,7 +24,6 @@ const Users = (props) => {
                 </div>
 
                 
-                
                 <div className={s.pageUsers}>
                     {props.users.map(u => 
                         <div key={u.id} className={s.user}>

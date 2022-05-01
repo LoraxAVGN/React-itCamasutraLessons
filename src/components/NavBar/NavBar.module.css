@@ -1,10 +1,14 @@
 .nav{
-  background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1612822078_105-p-nadpis-na-biryuzovom-fone-141.jpg);
   grid-area: n;
   padding: 20px;
-  font-size: 35px;
+  font-size: 20px;
   font-weight: 500;
-
+  /* border: solid black 1px;
+  border-radius: 20px; */
+  min-width: 105px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .item a:not(.activeLink){

@@ -2,39 +2,51 @@
   width: 100%;
   height: 200px;
 }
-
 .contant{
-  margin: 20px;
+  margin-top: 15px;
 }
-
 .contant>*{
   margin-bottom: 10px;
 }
-
+.photo_block{
+  max-width: 230px;
+  padding: 20px;
+  background-color: white;
+  border: solid 1px rgb(207, 207, 207);
+  border-radius: 5px;
+}
 .cat{
   width: 230px;
   margin-bottom: 0;
-  border-radius: 15px;
+  border-radius: 2px;
 }
-
 .photo_info{
   display: flex;
-  width: 600px;
-  /* justify-content: space-between; */
-  gap: 50px;
-  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  
 }
-
 .myInfo{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   font-size: 20px;
   background-color: white;
-  border: solid 2px black;
-  border-radius: 10px;
+  border: solid 1px rgb(207, 207, 207);
+  border-radius: 5px;
   padding: 10px;
 }
-
 .myPosts{
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
+}
+.addBut{
+  margin-top: 5px;
+  font-size: 18px;
+  padding: 10px;
+  min-width: 230px;
+  transition: 0s;
+  border-radius: 2px;
+  border: solid 1px grey;
 }

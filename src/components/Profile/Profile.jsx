@@ -7,30 +7,33 @@ import itemPhoto from '../../assets/images/avatar.png'
 
 const Profile = (props) => {
     let allPostMessages = props.mes
-        .map((m,i) => <Post key={i} message={m.message} count={m.count}/>);
-    
-    if(!props.profile) return(<Preloader />);
+        .map((m, i) => <Post key={i} message={m.message} count={m.count} />);
+
+    if (!props.profile) return (<Preloader />);
 
     return (
         <div>
-           <div className={s.contant}>
+            <div className={s.contant}>
                 <div className={s.photo_info}>
-                    <img className={s.cat} 
-                        src={!props.profile.photos.small?itemPhoto:props.profile.photos.small}
-                    />
+                    <div className={s.photo_block}>
+                        <img className={s.cat}
+                            src={!props.profile.photos.small ? itemPhoto : props.profile.photos.small}
+                        />
+                        <button className={s.addBut}>Редактировать</button>
+                    </div>
                     <div className={s.myInfo}>
                         <p>Имя: {props.profile.fullName}</p>
                         {props.profile.aboutMe && <p>Обо мне: {props.profile.aboutMe}</p>}
-                        {props.profile.lookingForAJob && <p>Работа: {props.profile.lookingForAJob?'Есть':'Нет'}</p>}
+                        {props.profile.lookingForAJob && <p>Работа: {props.profile.lookingForAJob ? 'Есть' : 'Нет'}</p>}
                         {props.profile.lookingForAJobDescription && <p>О работе: {props.profile.lookingForAJobDescription}</p>}
                     </div>
                 </div>
-                     
+
                 <MyProfile dispatch={props.dispatch}
-                           profileTextareaValue={props.profileTextareaValue}
+                    profileTextareaValue={props.profileTextareaValue}
                 />
                 <div className={s.myPosts}>
-                    { allPostMessages }
+                    {allPostMessages}
                 </div>
             </div>
         </div>
